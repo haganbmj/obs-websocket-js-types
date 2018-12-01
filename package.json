@@ -1,0 +1,22 @@
+{
+  "name": "obs-websocket-js-types",
+  "version": "1.0.0",
+  "description": "Typings for @haganbmj/obs-websocket-js, consumes @Palakis/obs-websocket",
+  "author": "Brendan Hagan (haganbmj)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haganbmj/obs-websocket-js-types.git"
+  },
+  "scripts": {
+    "test": "dtslint ."
+  },
+  "devDependencies": {
+    "dtslint": "^0.3.0",
+    "tslint": "^5.11.0",
+    "typescript": "^3.2.1"
+  },
+  "dependencies": {
+    "@types/node": "^10.12.11"
+  }
+}

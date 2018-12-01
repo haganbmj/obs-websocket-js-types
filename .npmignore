@@ -1,0 +1,21 @@
+.github
+.travis
+
+# IntelliJ
+.idea/
+*.ipr
+*.iws
+*.iml
+.idea_modules
+
+.editorconfig
+.travis.yml
+package-lock.json # Not entirely sure that it's correct to exclude this.
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+tslint.json
+tests.ts

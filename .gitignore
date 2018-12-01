@@ -1,0 +1,19 @@
+node_modules
+
+# IntelliJ
+.idea/
+*.ipr
+*.iws
+*.iml
+.idea_modules
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Until npm5 package-locks are more reliable.
+package-lock.json
+
+# Exclude the compiled types definition.
+# index.d.ts
