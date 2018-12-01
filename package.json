@@ -1,6 +1,6 @@
 {
   "name": "obs-websocket-js-types",
-  "version": "1.0.0",
+  "version": "4.4.0",
   "description": "Typings for @haganbmj/obs-websocket-js, consumes @Palakis/obs-websocket",
   "author": "Brendan Hagan (haganbmj)",
   "license": "MIT",
