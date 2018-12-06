@@ -49,9 +49,6 @@ declare module "obs-websocket-js" {
           "obs-websocket-version": string;
           "obs-studio-version": string;
           "available-requests": string;
-          obsWebsocketVersion: string;
-          obsStudioVersion: string;
-          availableRequests: string;
         }
       ) => void
     ): Promise<{
@@ -61,9 +58,6 @@ declare module "obs-websocket-js" {
       "obs-websocket-version": string;
       "obs-studio-version": string;
       "available-requests": string;
-      obsWebsocketVersion: string;
-      obsStudioVersion: string;
-      availableRequests: string;
     }>;
 
     send(
@@ -100,7 +94,7 @@ declare module "obs-websocket-js" {
 
     send(
       requestType: "SetFilenameFormatting",
-      args: { "filename-formatting": string; filenameFormatting: string },
+      args: { "filename-formatting": string },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
 
@@ -108,23 +102,17 @@ declare module "obs-websocket-js" {
       requestType: "GetFilenameFormatting",
       callback?: (
         error: ObsWebSocket.ObsError | null,
-        data: {
-          messageId: string;
-          status: "ok";
-          "filename-formatting": string;
-          filenameFormatting: string;
-        }
+        data: { messageId: string; status: "ok"; "filename-formatting": string }
       ) => void
     ): Promise<{
       messageId: string;
       status: "ok";
       "filename-formatting": string;
-      filenameFormatting: string;
     }>;
 
     send(
       requestType: "SetCurrentProfile",
-      args: { "profile-name": string; profileName: string },
+      args: { "profile-name": string },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
 
@@ -132,19 +120,9 @@ declare module "obs-websocket-js" {
       requestType: "GetCurrentProfile",
       callback?: (
         error: ObsWebSocket.ObsError | null,
-        data: {
-          messageId: string;
-          status: "ok";
-          "profile-name": string;
-          profileName: string;
-        }
+        data: { messageId: string; status: "ok"; "profile-name": string }
       ) => void
-    ): Promise<{
-      messageId: string;
-      status: "ok";
-      "profile-name": string;
-      profileName: string;
-    }>;
+    ): Promise<{ messageId: string; status: "ok"; "profile-name": string }>;
 
     send(
       requestType: "ListProfiles",
@@ -179,7 +157,7 @@ declare module "obs-websocket-js" {
 
     send(
       requestType: "SetRecordingFolder",
-      args: { "rec-folder": string; recFolder: string },
+      args: { "rec-folder": string },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
 
@@ -187,19 +165,9 @@ declare module "obs-websocket-js" {
       requestType: "GetRecordingFolder",
       callback?: (
         error: ObsWebSocket.ObsError | null,
-        data: {
-          messageId: string;
-          status: "ok";
-          "rec-folder": string;
-          recFolder: string;
-        }
+        data: { messageId: string; status: "ok"; "rec-folder": string }
       ) => void
-    ): Promise<{
-      messageId: string;
-      status: "ok";
-      "rec-folder": string;
-      recFolder: string;
-    }>;
+    ): Promise<{ messageId: string; status: "ok"; "rec-folder": string }>;
 
     send(
       requestType: "StartStopReplayBuffer",
@@ -223,7 +191,7 @@ declare module "obs-websocket-js" {
 
     send(
       requestType: "SetCurrentSceneCollection",
-      args: { "sc-name": string; scName: string },
+      args: { "sc-name": string },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
 
@@ -231,41 +199,25 @@ declare module "obs-websocket-js" {
       requestType: "GetCurrentSceneCollection",
       callback?: (
         error: ObsWebSocket.ObsError | null,
-        data: {
-          messageId: string;
-          status: "ok";
-          "sc-name": string;
-          scName: string;
-        }
+        data: { messageId: string; status: "ok"; "sc-name": string }
       ) => void
-    ): Promise<{
-      messageId: string;
-      status: "ok";
-      "sc-name": string;
-      scName: string;
-    }>;
+    ): Promise<{ messageId: string; status: "ok"; "sc-name": string }>;
 
     send(
       requestType: "ListSceneCollections",
       callback?: (
         error: ObsWebSocket.ObsError | null,
-        data: {
-          messageId: string;
-          status: "ok";
-          "scene-collections": string[];
-          sceneCollections: string[];
-        }
+        data: { messageId: string; status: "ok"; "scene-collections": string[] }
       ) => void
     ): Promise<{
       messageId: string;
       status: "ok";
       "scene-collections": string[];
-      sceneCollections: string[];
     }>;
 
     send(
       requestType: "GetSceneItemProperties",
-      args: { "scene-name"?: string; item: string; sceneName?: string },
+      args: { "scene-name"?: string; item: string },
       callback?: (
         error: ObsWebSocket.ObsError | null,
         data: {
@@ -303,37 +255,25 @@ declare module "obs-websocket-js" {
         bounds: { y: number; type: string; alignment: number; x: number };
         scale: { x: number; y: number };
         crop: { bottom: number; left: number; right: number; top: number };
-        sceneName?: string;
       },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
 
     send(
       requestType: "ResetSceneItem",
-      args: { "scene-name"?: string; item: string; sceneName?: string },
+      args: { "scene-name"?: string; item: string },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
 
     send(
       requestType: "SetSceneItemRender",
-      args: {
-        source: string;
-        render: boolean;
-        "scene-name"?: string;
-        sceneName?: string;
-      },
+      args: { source: string; render: boolean; "scene-name"?: string },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
 
     send(
       requestType: "SetSceneItemPosition",
-      args: {
-        "scene-name"?: string;
-        item: string;
-        x: number;
-        y: number;
-        sceneName?: string;
-      },
+      args: { "scene-name"?: string; item: string; x: number; y: number },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
 
@@ -345,9 +285,6 @@ declare module "obs-websocket-js" {
         "x-scale": number;
         "y-scale": number;
         rotation: number;
-        sceneName?: string;
-        xScale: number;
-        yScale: number;
       },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
@@ -361,14 +298,13 @@ declare module "obs-websocket-js" {
         bottom: number;
         left: number;
         right: number;
-        sceneName?: string;
       },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
 
     send(
       requestType: "SetCurrentScene",
-      args: { "scene-name": string; sceneName: string },
+      args: { "scene-name": string },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
 
@@ -399,7 +335,6 @@ declare module "obs-websocket-js" {
           status: "ok";
           "current-scene": string;
           scenes: ObsWebSocket.Scene[];
-          currentScene: string;
         }
       ) => void
     ): Promise<{
@@ -407,7 +342,6 @@ declare module "obs-websocket-js" {
       status: "ok";
       "current-scene": string;
       scenes: ObsWebSocket.Scene[];
-      currentScene: string;
     }>;
 
     send(
@@ -547,7 +481,7 @@ declare module "obs-websocket-js" {
 
     send(
       requestType: "GetTextGDIPlusProperties",
-      args: { "scene-name"?: string; source: string; sceneName?: string },
+      args: { "scene-name"?: string; source: string },
       callback?: (
         error: ObsWebSocket.ObsError | null,
         data: {
@@ -577,8 +511,6 @@ declare module "obs-websocket-js" {
           outline_color: number;
           outline_size: number;
           outline_opacity: number;
-          bkOpacity: number;
-          bkColor: number;
         }
       ) => void
     ): Promise<{
@@ -608,8 +540,6 @@ declare module "obs-websocket-js" {
       outline_color: number;
       outline_size: number;
       outline_opacity: number;
-      bkOpacity: number;
-      bkColor: number;
     }>;
 
     send(
@@ -641,16 +571,13 @@ declare module "obs-websocket-js" {
         outline_color?: number;
         outline_size?: number;
         outline_opacity?: number;
-        sceneName?: string;
-        bkColor?: number;
-        bkOpacity?: number;
       },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
 
     send(
       requestType: "GetBrowserSourceProperties",
-      args: { "scene-name"?: string; source: string; sceneName?: string },
+      args: { "scene-name"?: string; source: string },
       callback?: (
         error: ObsWebSocket.ObsError | null,
         data: {
@@ -695,7 +622,6 @@ declare module "obs-websocket-js" {
         fps?: number;
         shutdown?: boolean;
         render?: boolean;
-        sceneName?: string;
       },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
@@ -796,9 +722,6 @@ declare module "obs-websocket-js" {
           "stream-timecode"?: string;
           "rec-timecode"?: string;
           "preview-only": boolean;
-          streamTimecode?: string;
-          recTimecode?: string;
-          previewOnly: boolean;
         }
       ) => void
     ): Promise<{
@@ -809,9 +732,6 @@ declare module "obs-websocket-js" {
       "stream-timecode"?: string;
       "rec-timecode"?: string;
       "preview-only": boolean;
-      streamTimecode?: string;
-      recTimecode?: string;
-      previewOnly: boolean;
     }>;
 
     send(
@@ -821,7 +741,7 @@ declare module "obs-websocket-js" {
 
     send(
       requestType: "StartStreaming",
-      args: {
+      args?: {
         stream?: {
           type?: string;
           metadata?: {};
@@ -831,7 +751,6 @@ declare module "obs-websocket-js" {
             "use-auth"?: boolean;
             username?: string;
             password?: string;
-            useAuth?: boolean;
           };
         };
       },
@@ -853,7 +772,6 @@ declare module "obs-websocket-js" {
           "use-auth"?: boolean;
           username?: string;
           password?: string;
-          useAuth?: boolean;
         };
         save: boolean;
       },
@@ -874,7 +792,6 @@ declare module "obs-websocket-js" {
             "use-auth": boolean;
             username: string;
             password: string;
-            useAuth: boolean;
           };
         }
       ) => void
@@ -888,7 +805,6 @@ declare module "obs-websocket-js" {
         "use-auth": boolean;
         username: string;
         password: string;
-        useAuth: boolean;
       };
     }>;
 
@@ -901,19 +817,9 @@ declare module "obs-websocket-js" {
       requestType: "GetStudioModeStatus",
       callback?: (
         error: ObsWebSocket.ObsError | null,
-        data: {
-          messageId: string;
-          status: "ok";
-          "studio-mode": boolean;
-          studioMode: boolean;
-        }
+        data: { messageId: string; status: "ok"; "studio-mode": boolean }
       ) => void
-    ): Promise<{
-      messageId: string;
-      status: "ok";
-      "studio-mode": boolean;
-      studioMode: boolean;
-    }>;
+    ): Promise<{ messageId: string; status: "ok"; "studio-mode": boolean }>;
 
     send(
       requestType: "GetPreviewScene",
@@ -935,16 +841,13 @@ declare module "obs-websocket-js" {
 
     send(
       requestType: "SetPreviewScene",
-      args: { "scene-name": string; sceneName: string },
+      args: { "scene-name": string },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
 
     send(
       requestType: "TransitionToProgram",
-      args: {
-        "with-transition"?: { name: string; duration?: number };
-        withTransition?: { name: string; duration?: number };
-      },
+      args?: { "with-transition"?: { name: string; duration?: number } },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
 
@@ -972,7 +875,6 @@ declare module "obs-websocket-js" {
           status: "ok";
           "current-transition": string;
           transitions: string[];
-          currentTransition: string;
         }
       ) => void
     ): Promise<{
@@ -980,7 +882,6 @@ declare module "obs-websocket-js" {
       status: "ok";
       "current-transition": string;
       transitions: string[];
-      currentTransition: string;
     }>;
 
     send(
@@ -1003,7 +904,7 @@ declare module "obs-websocket-js" {
 
     send(
       requestType: "SetCurrentTransition",
-      args: { "transition-name": string; transitionName: string },
+      args: { "transition-name": string },
       callback?: (error: ObsWebSocket.ObsError | null) => void
     ): Promise<void>;
 
@@ -1017,27 +918,17 @@ declare module "obs-websocket-js" {
       requestType: "GetTransitionDuration",
       callback?: (
         error: ObsWebSocket.ObsError | null,
-        data: {
-          messageId: string;
-          status: "ok";
-          "transition-duration": number;
-          transitionDuration: number;
-        }
+        data: { messageId: string; status: "ok"; "transition-duration": number }
       ) => void
     ): Promise<{
       messageId: string;
       status: "ok";
       "transition-duration": number;
-      transitionDuration: number;
     }>;
     on(
       event: "SwitchScenes",
       listener: (
-        data: {
-          "scene-name": string;
-          sources: ObsWebSocket.Source[];
-          sceneName: string;
-        }
+        data: { "scene-name": string; sources: ObsWebSocket.Source[] }
       ) => void
     ): this;
 
@@ -1049,16 +940,14 @@ declare module "obs-websocket-js" {
 
     on(
       event: "SwitchTransition",
-      listener: (
-        data: { "transition-name": string; transitionName: string }
-      ) => void
+      listener: (data: { "transition-name": string }) => void
     ): this;
 
     on(event: "TransitionListChanged", listener: () => void): this;
 
     on(
       event: "TransitionDurationChanged",
-      listener: (data: { "new-duration": number; newDuration: number }) => void
+      listener: (data: { "new-duration": number }) => void
     ): this;
 
     on(
@@ -1069,8 +958,6 @@ declare module "obs-websocket-js" {
           duration: number;
           "from-scene": string;
           "to-scene": string;
-          fromScene: string;
-          toScene: string;
         }
       ) => void
     ): this;
@@ -1081,18 +968,14 @@ declare module "obs-websocket-js" {
 
     on(
       event: "StreamStarting",
-      listener: (
-        data: { "preview-only": boolean; previewOnly: boolean }
-      ) => void
+      listener: (data: { "preview-only": boolean }) => void
     ): this;
 
     on(event: "StreamStarted", listener: () => void): this;
 
     on(
       event: "StreamStopping",
-      listener: (
-        data: { "preview-only": boolean; previewOnly: boolean }
-      ) => void
+      listener: (data: { "preview-only": boolean }) => void
     ): this;
 
     on(event: "StreamStopped", listener: () => void): this;
@@ -1111,12 +994,6 @@ declare module "obs-websocket-js" {
           "num-total-frames": number;
           "num-dropped-frames": number;
           fps: number;
-          previewOnly: boolean;
-          bytesPerSec: number;
-          kbitsPerSec: number;
-          totalStreamTime: number;
-          numTotalFrames: number;
-          numDroppedFrames: number;
         }
       ) => void
     ): this;
@@ -1154,45 +1031,23 @@ declare module "obs-websocket-js" {
           "total-record-time"?: number;
           "total-record-bytes"?: number;
           "total-record-frames"?: number;
-          totalStreamBytes?: number;
-          currentScene?: string;
-          totalStreamTime?: number;
-          currentProfile?: string;
-          totalStreamFrames?: number;
-          totalRecordTime?: number;
-          totalRecordBytes?: number;
-          totalRecordFrames?: number;
         }
       ) => void
     ): this;
 
     on(
       event: "SourceOrderChanged",
-      listener: (data: { "scene-name": string; sceneName: string }) => void
+      listener: (data: { "scene-name": string }) => void
     ): this;
 
     on(
       event: "SceneItemAdded",
-      listener: (
-        data: {
-          "scene-name": string;
-          "item-name": string;
-          sceneName: string;
-          itemName: string;
-        }
-      ) => void
+      listener: (data: { "scene-name": string; "item-name": string }) => void
     ): this;
 
     on(
       event: "SceneItemRemoved",
-      listener: (
-        data: {
-          "scene-name": string;
-          "item-name": string;
-          sceneName: string;
-          itemName: string;
-        }
-      ) => void
+      listener: (data: { "scene-name": string; "item-name": string }) => void
     ): this;
 
     on(
@@ -1202,9 +1057,6 @@ declare module "obs-websocket-js" {
           "scene-name": string;
           "item-name": string;
           "item-visible": boolean;
-          sceneName: string;
-          itemName: string;
-          itemVisible: boolean;
         }
       ) => void
     ): this;
@@ -1212,17 +1064,13 @@ declare module "obs-websocket-js" {
     on(
       event: "PreviewSceneChanged",
       listener: (
-        data: {
-          "scene-name": string;
-          sources: ObsWebSocket.Source[];
-          sceneName: string;
-        }
+        data: { "scene-name": string; sources: ObsWebSocket.Source[] }
       ) => void
     ): this;
 
     on(
       event: "StudioModeSwitched",
-      listener: (data: { "new-state": boolean; newState: boolean }) => void
+      listener: (data: { "new-state": boolean }) => void
     ): this;
   }
 

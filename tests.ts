@@ -12,8 +12,13 @@ obs.send('Authenticate', {auth: 'foo'});
 obs.send('Authenticate', {auth: 'foo'}).then();
 obs.send('Authenticate', {auth: 'foo'}, () => {});
 
+// Test missing optional args. Shouldn't error.
+obs.send('StartStreaming');
+obs.send('StartStreaming', {});
+
 obs.on('SwitchScenes', () => {});
 
+// Missing required args.
 // $ExpectError
 obs.send('Authenticate', {});
 

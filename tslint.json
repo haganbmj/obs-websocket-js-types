@@ -2,6 +2,7 @@
   "extends": "dtslint/dtslint.json",
   "rules": {
     "array-type": false,
+    "file-name-casing": false,
     "no-single-declare-module": false,
     "no-unnecessary-qualifier": false,
     "unified-signatures": false
