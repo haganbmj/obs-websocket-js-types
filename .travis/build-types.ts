@@ -162,6 +162,12 @@ declare module 'obs-websocket-js' {
     disconnect(): void;
   
     ${requestOverloads.join('\n\n  ')}
+    
+    on(event: "ConnectionOpened", listener: () => void): this;
+    on(event: "ConnectionClosed", listener: () => void): this;
+    on(event: "AuthenticationSuccess", listener: () => void): this;
+    on(event: "AuthenticationFailure", listener: () => void): this;
+    
     ${eventOverloads.join('\n\n  ')}
   }
   

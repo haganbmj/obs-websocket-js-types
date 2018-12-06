@@ -925,6 +925,12 @@ declare module "obs-websocket-js" {
       status: "ok";
       "transition-duration": number;
     }>;
+
+    on(event: "ConnectionOpened", listener: () => void): this;
+    on(event: "ConnectionClosed", listener: () => void): this;
+    on(event: "AuthenticationSuccess", listener: () => void): this;
+    on(event: "AuthenticationFailure", listener: () => void): this;
+
     on(
       event: "SwitchScenes",
       listener: (
